@@ -24,6 +24,10 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 // Set access log
 app.use(accessLogger());
+
+// Set middleware
+app.use(express.urlencoded({extended: true}));
+
 // Dynamic resource routing
 app.use("/account", require("./routes/account.js"));
 app.use("/search", require("./routes/search.js"));
